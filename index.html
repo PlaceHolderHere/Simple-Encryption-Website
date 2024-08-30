@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encryption & Decryption</title>
+</head>
+<style>
+    body{
+        text-align: center;
+        font-size: 1.75em;
+        width: 100%;
+        }
+
+    input{
+        width:80%; 
+        height:30%; 
+        text-align:center;
+        padding: 20px;
+        font-size: 1rem; /* Increase the font size */
+    }
+
+    button{
+        padding: 40px;
+        font-size: 1rem;
+    }
+
+</style>
+<body>
+    <h1>Message Input</h1>
+    <input div="inputForm" id="inputForm" placeholder="Message to process"></input>
+    <h1 id="outputForm"></h1>
+    <div class="buttons">
+        <button onclick="processMessage()">Encrypt</button>
+        <button onclick="processMessage()">Decrypt</button>
+        <button onclick="clearText()">Clear</button>
+    </div>
+</body>
+</html>
+
+<script>
+    const chars = [' ', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '!', '"', '#', '$', '%', '&', "'", '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@', '[', '\\', ']', '^', '_', '`', '{', '|', '}', '~']
+    const key = [' ', '1', '0', '9', '8', '7', '6', '5', '4', '3', '2', 'l', 'c', 'b', 'j', 'i', 'h', 'v', 'f', 'e', 'd', 's', 'a', 'z', 'x', 'w', 'q', 'p', 'u', 'k', 'y', 'r', 'g', 'o', 'n', 't', 'm', 'L', 'C', 'B', 'J', 'I', 'H', 'V', 'F', 'E', 'D', 'S', 'A', 'Z', 'X', 'W', 'Q', 'P', 'U', 'K', 'Y', 'R', 'G', 'O', 'N', 'T', 'M', '!', '"', '#', '$', '%', '&', "'", '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@', '[', '\\', ']', '^', '_', '`', '{', '|', '}', '~',]
+    const inputForm = document.getElementById('inputForm')
+    const outputForm = document.getElementById('outputForm')
+    
+    function processMessage(){
+        let inputtedMessage = ''
+        let outputMessage = ''
+        inputtedMessage = inputForm.value
+        for (let i = 0; i < inputtedMessage.length; i++) {
+            charIndex = chars.indexOf(inputtedMessage[i])
+            outputMessage += key[charIndex]            
+        }
+        outputForm.innerHTML = outputMessage
+    }
+
+    function clearText(){
+        console.log('hi')
+        inputForm.value = ""
+        outputForm.innerHTML = ""
+    }
+</script>
