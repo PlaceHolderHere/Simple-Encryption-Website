@@ -68,11 +68,9 @@
         let inputtedMessage = inputForm.value
         let outputMessage = ''
         for (let charIndex = 0; charIndex < inputtedMessage.length; charIndex++) {
-            index = chars.indexOf(inputtedMessage[charIndex]) 
-            if (index + charIndex >= char_length){
-                index = index + charIndex - (char_length * Math.floor((index + charIndex) / char_length))
-            }else{
-                index += charIndex
+            index = chars.indexOf(inputtedMessage[charIndex]) + charIndex
+            if (index >= char_length){
+                index -= (char_length * Math.floor((index + charIndex) / char_length))
             }
             outputMessage += key[index]            
         }        
@@ -83,13 +81,14 @@
         let inputtedMessage = inputForm.value
         let outputMessage = ''
         for (let i = 0; i < inputtedMessage.length; i++) {
-            keyIndex = key.indexOf(inputtedMessage[i])
-            if (keyIndex - i <= 0){
-                keyIndex = keyIndex - i + (key_length * Math.floor((keyIndex + i) / key_length))
-            }else{
-                keyIndex -= i
+            keyIndex = key.indexOf(inputtedMessage[i]) - i
+            if (keyIndex <= 0){
+                keyIndex -= (key_length * Math.floor((keyIndex + i) / key_length))
             }
-            console.log(keyIndex)
+
+            if (keyIndex < 0){
+                keyIndex += key_length
+            }
             outputMessage += chars[keyIndex]            
         }
         outputForm.innerHTML = outputMessage
