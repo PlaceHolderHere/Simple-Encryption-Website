@@ -72,7 +72,10 @@
             if (index >= char_length){
                 index -= (char_length * Math.floor((index + charIndex) / char_length))
             }
-            outputMessage += key[index]            
+            outputMessage += key[index]
+            if (charIndex >= char_length){
+                charIndex -= char_length
+            }
         }        
         outputForm.innerHTML = outputMessage
     }
