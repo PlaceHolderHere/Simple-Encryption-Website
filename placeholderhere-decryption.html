@@ -74,7 +74,7 @@
             }
 
             if (index < 0){
-                index += char_length
+                index += Math.abs(char_length * Math.floor((index) / char_length))
             }
             
             outputMessage += key[index]            
@@ -92,7 +92,7 @@
             }
 
             if (keyIndex < 0){
-                keyIndex += key_length
+                keyIndex += Math.abs(key_length * Math.floor((keyIndex) / key_length))
             }
             outputMessage += chars[keyIndex]            
         }
