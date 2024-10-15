@@ -86,7 +86,7 @@
         let inputtedMessage = inputForm.value
         let outputMessage = ''
         for (let i = 0; i < inputtedMessage.length; i++) {
-            keyIndex = key.indexOf(inputtedMessage[i]) - i
+            keyIndex = key.indexOf(inputtedMessage[i]) - i + 9
             if (keyIndex <= 0){
                 keyIndex -= (key_length * Math.floor((keyIndex + i) / key_length))
             }
