@@ -49,7 +49,7 @@
         let outputMessage = ''
         inputtedMessage = inputForm.value
         for (let i = 0; i < inputtedMessage.length; i++) {
-            charIndex = chars.indexOf(inputtedMessage[i])
+            charIndex = chars.indexOf(inputtedMessage[i + 9])
             outputMessage += key[charIndex]            
         }
         outputForm.innerHTML = outputMessage
